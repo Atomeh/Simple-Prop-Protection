@@ -255,7 +255,7 @@ end
 
 
 //Condom menu
-//Drive
+//Entity Drive
 function SPropProtection.CanDrive(ply, ent)
 	
 	local driveConfig = tonumber(SPropProtection.Config["drive"])
