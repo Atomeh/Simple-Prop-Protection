@@ -310,18 +310,29 @@ function SPropProtection.PlayerInitialSpawn(ply)
 end
 hook.Add("PlayerInitialSpawn", "SPropProtection.PlayerInitialSpawn", SPropProtection.PlayerInitialSpawn)
 
+
+//Player disconnected
 function SPropProtection.Disconnect(ply)
 	
 	local mingebag = ply
 	local id = mingebag:SteamID()
 	local nick = mingebag:Nick()
+	local function RemoveKebab()
+		SPropProtection.DRemove(id, nick)
+	end
+
 	if(tonumber(SPropProtection.Config["dpd"]) == 1) then
+
 		if(mingebag:IsAdmin() and tonumber(SPropProtection.Config["dae"]) == 0) then return end
-		timer.Create("SPropProtection.DRemove: ".. id, tonumber(SPropProtection.Config["delay"]), 1, SPropProtection.DRemove, id, nick)
+
+		timer.Create("SPropProtection.DRemove: ".. id, 
+			tonumber(SPropProtection.Config["delay"]), 1, 
+			RemoveKebab
+		)
 	end
 end
-
 hook.Add("PlayerDisconnected", "SPropProtection.Disconnect", SPropProtection.Disconnect)
+
 
 function SPropProtection.PhysGravGunPickup(ply, ent)
 	if(!ent or !ent:IsValid()) then
