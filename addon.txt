@@ -1,11 +1,8 @@
 "AddonInfo"
 {
 	"name"				"Simple Prop Protection"
-	"version"			"SVN"
-	"up_date"			""
-	"author_name"		"Spacetech"
-	"author_email"		"Spacetech326@gmail.com"
-	"author_url"		"http://code.google.com/p/simplepropprotection"
+	"version"			"git"
+	"up_date"			"6 October 2012"
 	"info"				""
 	"override"			"0"
 }
